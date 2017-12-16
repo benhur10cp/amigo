@@ -1,0 +1,10 @@
+<h3>Amigo Secreto</h3>
+
+<%= @encontro.nome %>
+
+<br>
+
+<% @encontro.participantes.each do |participante| %>
+    Nome: <%= participante.nome %>   <br>
+    Email: <%= participante.email %> <br>
+<% end %>

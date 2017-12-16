@@ -1,0 +1,19 @@
+<%#= form_with(model: @encontro, local: true) do |f| %>
+<%= simple_nested_form_for @encontro, class: "form-horizontal" do |f| %>
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+    <%#= f.fields_for :participantes do |p| %>
+    <%= f.simple_fields_for :participantes do |p| %>
+        <div class="row">
+          <%= p.label :nome %>
+          <%= p.text_field :nome %>
+
+          <%= p.label :email %>
+          <%= p.text_field :email %>
+
+          <%= f.link_to_remove 'Remover', data: {disable_with: "Fechando..."} %>
+        </div>
+    <% end %>
+    <%= f.link_to_add 'Adicionar Participante', :participantes %>
+    <%= f.submit 'Criar Novo' %>
+<% end %>
